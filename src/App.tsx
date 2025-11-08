@@ -7,8 +7,23 @@ import { Courses } from './pages/Courses';
 import { Skills } from './pages/Skills';
 import { CareerPaths } from './pages/CareerPaths';
 import { Profile } from './pages/Profile';
+import { Recommendations } from './pages/Recommendations';
+import { Jobs } from './pages/Jobs';
+import { Mentorship } from './pages/Mentorship';
+import { EducatorDashboard } from './pages/EducatorDashboard';
+import { RecruiterDashboard } from './pages/RecruiterDashboard';
 
-type Page = 'dashboard' | 'courses' | 'career' | 'profile' | 'skills';
+type Page =
+  | 'dashboard'
+  | 'courses'
+  | 'career'
+  | 'profile'
+  | 'skills'
+  | 'recommendations'
+  | 'jobs'
+  | 'mentorship'
+  | 'educator'
+  | 'recruiter';
 
 function AppContent() {
   const { user, loading } = useAuth();
@@ -36,6 +51,16 @@ function AppContent() {
         return <Skills />;
       case 'career':
         return <CareerPaths />;
+      case 'recommendations':
+        return <Recommendations />;
+      case 'jobs':
+        return <Jobs />;
+      case 'mentorship':
+        return <Mentorship />;
+      case 'educator':
+        return <EducatorDashboard />;
+      case 'recruiter':
+        return <RecruiterDashboard />;
       case 'profile':
         return <Profile />;
       default:

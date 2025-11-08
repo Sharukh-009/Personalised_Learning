@@ -8,12 +8,27 @@ import {
   User,
   LogOut,
   TrendingUp,
+  Sparkles,
+  Briefcase,
+  Users,
 } from 'lucide-react';
+
+type Page =
+  | 'dashboard'
+  | 'courses'
+  | 'career'
+  | 'profile'
+  | 'skills'
+  | 'recommendations'
+  | 'jobs'
+  | 'mentorship'
+  | 'educator'
+  | 'recruiter';
 
 type LayoutProps = {
   children: ReactNode;
-  currentPage: 'dashboard' | 'courses' | 'career' | 'profile' | 'skills';
-  onNavigate: (page: 'dashboard' | 'courses' | 'career' | 'profile' | 'skills') => void;
+  currentPage: Page;
+  onNavigate: (page: Page) => void;
 };
 
 export const Layout = ({ children, currentPage, onNavigate }: LayoutProps) => {
@@ -21,9 +36,12 @@ export const Layout = ({ children, currentPage, onNavigate }: LayoutProps) => {
 
   const navItems = [
     { id: 'dashboard' as const, label: 'Dashboard', icon: LayoutDashboard },
+    { id: 'recommendations' as const, label: 'AI Picks', icon: Sparkles },
     { id: 'courses' as const, label: 'Courses', icon: BookOpen },
     { id: 'skills' as const, label: 'Skills', icon: TrendingUp },
-    { id: 'career' as const, label: 'Career Paths', icon: Target },
+    { id: 'career' as const, label: 'Career', icon: Target },
+    { id: 'jobs' as const, label: 'Jobs', icon: Briefcase },
+    { id: 'mentorship' as const, label: 'Mentors', icon: Users },
     { id: 'profile' as const, label: 'Profile', icon: User },
   ];
 
